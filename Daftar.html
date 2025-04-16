@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DKV Nesta - Daftar Murid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;700&family=Poppins:wght@100;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link rel="stylesheet" href="Main Page Style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Styling untuk daftar nama */
+        /* Styling untuk daftar nama */
+        .list-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 15px;
+          padding: 20px;
+          margin: 0 auto;
+          max-width: 1200px;
+        }
+
+        .list-card {
+          background: linear-gradient(135deg, rgba(79, 172, 254, 0.8), rgba(0, 242, 254, 0.8));
+          border-radius: 12px;
+          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(165, 160, 160, 0.6);
+          padding: 15px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          text-align: center;
+          color: #fff;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          animation: fadeIn 0.5s ease-in-out;
+          backdrop-filter: blur(10px);
+        }
+
+        .list-card::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 70%);
+          transform: rotate(30deg);
+          transition: all 0.8s ease;
+          z-index: 0;
+          opacity: 0;
+        }
+
+        .list-card:hover::before {
+          top: -30%;
+          left: -30%;
+          opacity: 1;
+        }
+
+        .list-card p {
+          margin: 0;
+          font-size: 1.2em;
+          position: relative;
+          z-index: 1;
+          color: #fff;
+          font-weight: 600;
+          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .list-card:hover {
+          transform: translateY(-5px) scale(1.05);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h3, h4 {
+          text-align: center;
+          color: #0077b6;
+          font-weight: 600;
+        }
+
+       
+        @media (max-width: 768px) {
+          .list-container {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 10px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .list-container {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }   
+
+        .list-card.owner {
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: white;
+  font-weight: bold;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  padding-bottom: 40px; /* Tambahan ruang untuk label di bawah */
+}
+
+.list-card.owner a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
+}
+
+.list-card.owner:hover a {
+  color: #2196f3; /* Warna biru saat hover */
+  text-decoration: underline; /* Tambahkan garis bawah */
+}
+
+.list-card.owner:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #ff5722, #d84315);
+}
+
+.list-card.owner::after {
+  content: "✍️";
+  position: absolute;
+  bottom: 10px; /* Pindah ke pojok kanan bawah */
+  right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+      <div class="logo">DKV NESTA</div>
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav>
+        <ul>
+          <li ><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="Daftar.html">Murid DKV </a></li>
+          <li><a href="kontak.html">Contact</a></li>
+          <li><a href="https://www.dkv.smkn1.tangera.ng/" target="_blank">Blog DKV</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+
+        <h1 style="text-align: center;">Daftar Murid Angkatan 1</h1>
+        <div style="text-align: center;"> 
+          <img src="https://www.lms.dkv.smkn1.tangera.ng/pluginfile.php/1/core_admin/logo/900x900/1740434746/logo-DKV.png" alt="foto profil Sekolah" class="about-logo" draggable="false" style="max-width: 200px; margin-bottom: 20px;">
+      </div>
+        <h5 style="text-align: center;">Tahun pelajaran 2022/2023 sampai 2024/2025</h5>
+
+        <h2 style="color: #25a5be; text-align: center;">DKV 1</h2>
+        <div class="list-container">
+            <div class="list-card"><p>Abdan Shafiq Athalla Yusri</p></div>
+            <div class="list-card"><p>Aditya Putra Nugraha</p></div>
+            <div class="list-card"><p>Aisyah Alimah Lesmono</p></div>
+            <div class="list-card"><p>Aldini Kurniawan</p></div>
+            <div class="list-card"><p>Andre Firmansah</p></div>
+            <div class="list-card"><p>Azka Aimee Namiah</p></div>
+            <div class="list-card"><p>Bintang Basmara Abdullah</p></div>
+            <div class="list-card"><p>Caysa Medliona</p></div>
+            <div class="list-card"><p>Emilio Sasongko</p></div>
+            <div class="list-card"><p>Eryshia Then</p></div>
+            <div class="list-card"><p>Faiz Hakim Novianto</p></div>
+            <div class="list-card"><p>Falih Ghani Akhmad</p></div>
+            <div class="list-card"><p>Felicia Aisyah Serenity</p></div>
+            <div class="list-card"><p>Habiburrahman Sidik</p></div>
+            <div class="list-card"><p>Imam Fabio At-Tarmizi</p></div>
+            <div class="list-card"><p>Meilani Wulandari</p></div>
+            <div class="list-card"><p>Muhamad Azhim Ildana</p></div>
+            <div class="list-card"><p>Muhamad Julkahviludin</p></div>
+            <div class="list-card"><p>Muhammad Akmal Firaaski</p></div>
+            <div class="list-card"><p>Muhammad Al Ridho Ramadhani</p></div>
+            <div class="list-card"><p>Muhammad Helmi Athallah</p></div>
+            <div class="list-card"><p>Muhammad Hilman Al-Ghazy</p></div>
+            <div class="list-card"><p>Muhammad Irfansyah</p></div>
+            <div class="list-card"><p>Muhammad Shiddiq Al Khawarizmi</p></div>
+            <div class="list-card"><p>Nabila Zahran Anabela</p></div>
+            <div class="list-card"><p>Nasira Siddiqa Nurrahman</p></div>
+            <div class="list-card"><p>Nazila Diah Arfan Putri</p></div>
+            <div class="list-card"><p>Nidya Putri Rinton</p></div>
+            <div class="list-card"><p>Rafli Anadi Wicaksono</p></div>
+            <div class="list-card"><p>Riyana Larasati</p></div>
+            <div class="list-card"><p>Safira Natasya Ramadhany</p></div>
+            <div class="list-card"><p>Salwa Naurah El Imani</p></div>
+            <div class="list-card"><p>Syafira Azhara</p></div>
+            <div class="list-card"><p>Tiara</p></div>
+            <div class="list-card"><p>Violet Azra Zulfaqa</p></div>
+        </div>
+
+        <h2 style="color: #25a5be; text-align: center;">DKV 2</h2>
+        <div class="list-container">
+            <div class="list-card"><p>Achmad Dhanie Effendy</p></div>
+            <div class="list-card"><p>Ahmad Nur Sidiq</p></div>
+            <div class="list-card"><p>Al Firdaus Kornianda</p></div>
+            <div class="list-card"><p>Alvinly Hadinata</p></div>
+            <div class="list-card"><p>Aprilia Sechan</p></div>
+            <div class="list-card"><p>Azzahrra Dhabitah Junaria</p></div>
+            <div class="list-card"><p>Callysta Putri Isella</p></div>
+            <div class="list-card"><p>Danar Eka Maheswara</p></div>
+            <div class="list-card"><p>Dwi Andika</p></div>
+            <div class="list-card"><p>Dzikra Haifa Aulia</p></div>
+            <div class="list-card"><p>Erasmus Brahim Zaibat</p></div>
+            <div class="list-card"><p>Fadilah Arya Wisesa</p></div>
+            <div class="list-card"><p>Faiza Shivarani</p></div>
+            <div class="list-card"><p>Farel Ahmad Kurniawan</p></div>
+            <div class="list-card"><p>Frizki Ardiansyah</p></div>
+            <div class="list-card"><p>Hanna Majesta</p></div>
+            <div class="list-card"><p>Jonathan Toba Simangunsong</p></div>
+            <div class="list-card"><p>Mahessa Bagaskara</p></div>
+            <div class="list-card"><p>Mohamad Arief Fangga</p></div>
+            <div class="list-card"><p>Muhamad Fathir Alfath</p></div>
+            <div class="list-card"><p>Muhammad Andra Atha Razan</p></div>
+            <div class="list-card"><p>Muhammad Al Fattan Audratama</p></div>
+            <div class="list-card"><p>Muhammad Ellite Rapi Nassruloh</p></div>
+            <div class="list-card"><p>Muhammad Ridwan Abdul Rahman</p></div>
+            <div class="list-card"><p>Muhammad Uthman Dzaky</p></div>
+            <div class="list-card"><p>Nashwa Mayrani Putri Kurniawan</p></div>
+            <div class="list-card"><p>Natava Kudira Zidane</p></div>
+            <div class="list-card"><p>Nilam Setiana Gultom</p></div>
+            <div class="list-card"><p>Panji Fitra Permana</p></div>
+            <div class="list-card owner"><a href="https://ahmadreza0101.blogspot.com" target="_blank"><p>Reza Ahmad Al Ghifari</p></a></div>
+            <div class="list-card"><p>MK-RF</p><p>Graduate</div>
+            <div class="list-card"><p>Salsa Nabila</p></div>
+            <div class="list-card"><p>Shahnaz Nawra Raggaza Zaelrus</p></div>
+            <div class="list-card"><p>Syawaludin Purnama</p></div>
+            <div class="list-card"><p>Viola Wilda Pardede</p></div>
+        </div>
+    </main>
+
+        <footer>
+            <h5 id="footer-text" style="font-family: poppins-sans;">© 2025 Reza Ahmad™</h5>
+          </footer>
+          <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+          <script src="Script Main File.js" defer></script>
+        </main>
+          <button onclick="scrollToTop()" id="toTopBtn">⬆</button>
+          <button class="modeToggle">🌙</button>
+</body>
+</html>
